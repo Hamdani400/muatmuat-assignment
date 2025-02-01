@@ -16,6 +16,7 @@ export default function MainPage() {
 
     useEffect(() => {
         setDisplayedData([...products])
+        
     }, [products])
 
     const onClickAddProduct = () => {
@@ -53,7 +54,7 @@ export default function MainPage() {
                         <button onClick={() => onClickAddProduct()} className="px-4 py-2 rounded-lg bg-slate-200 transition-all delay-50 text-gray-500 hover:bg-slate-300 hover:text-gray-600">Add Product</button>
                     </div>
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-12">
                     {
                         displayedData.map((item, index) => {
                             return (

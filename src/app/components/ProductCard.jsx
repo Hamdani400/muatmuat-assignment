@@ -9,7 +9,7 @@ export default function ProductCard({ name, price, stock, id }) {
     const dispatch = useDispatch();
 
     const oncClickDelete = () => {
-        dispatch(switchDeleteConfirmation({show: true, data: id}))
+        dispatch(switchDeleteConfirmation({show: true, data: id, name: name}))
     }
     const oncClickEdit = () => {
         dispatch(editProduct({name, price, stock, id}))

@@ -50,17 +50,17 @@ export default function InputProductForm() {
         if (!name) {
             setIsNameError(true)
         }
-        if (!price) {
+        if (!price || +price < 0) {
             setIsPriceError(true)
         }
         if (!stock) {
             setIsStockError(true)
         }
-        if (name && price && stock && !editedData) {
+        if (name && price && stock && price && price > 0 && !editedData) {
             dispatch(addProduct({ name, price, stock }))
             dispatch(switchModal(false))
         }
-        if (name && price && stock && editedData) {
+        if (name && price && stock  && price && price > 0 && editedData) {
             dispatch(updateProduct({name, price, stock, id: editedData.id}))
             dispatch(switchModal(false))
         }
@@ -81,7 +81,9 @@ export default function InputProductForm() {
                 <div className="flex">
                     <span className="text-slate-600 mr-3 items-center">Rp.</span> <input value={price} onFocus={() => onFocusPrice()} onInput={(e) => onInputPrice(e)} type="number" className={`${isPriceError ? '' : 'mb-8 '} w-full text-slate-700 bg-slate-100 rounded-lg px-4 py-2`} placeholder="Input product price" />
                 </div>
-                {isPriceError && <p className="text-red-500 mb-5 transition-all">Price is required</p>}
+                {(isPriceError && !price) && <p className="text-red-500 mb-5 transition-all">Price is required</p>}
+                {(+price < 0) && <p className="text-red-500 mb-5 transition-all">Price cannot below 0</p>}
+                {(price === '0') && <p className="text-red-500 mb-5 transition-all">Price must greater than 0</p>}
                 <p className="text-slate-600 text-xl mb-2">Stock</p>
                 <input value={stock} onFocus={() => onFocusStock()} onInput={(e) => onInputStock(e)} type="number" className={`${isStockError ? '' : 'mb-16 '}w-full text-slate-700 bg-slate-100 rounded-lg px-4 py-2`} placeholder="Input remaining stock" />
                 {isStockError && <p className="text-red-500 mb-16 transition-all">Stock is required</p>}

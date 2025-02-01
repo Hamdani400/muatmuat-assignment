@@ -99,7 +99,7 @@ export const productSlice = createSlice({
         },
         switchDeleteConfirmation: (state, action) => {
             if (action.payload.show) {
-                state.dataDeleted = action.payload.data
+                state.dataDeleted = {id: action.payload.data, name: action.payload.name}
             } else {
                 state.dataDeleted = null
             }
