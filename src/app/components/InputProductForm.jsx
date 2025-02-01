@@ -87,7 +87,7 @@ export default function InputProductForm() {
                 {isStockError && <p className="text-red-500 mb-16 transition-all">Stock is required</p>}
                 <div className="flex justify-end">
                     <button className="px-4 py-2 rounded-lg bg-red-100 transition-all delay-50 text-red-400 mr-3 hover:bg-red-200 hover:text-red-600" onClick={() => onClickCancel()}>Cancel</button>
-                    <button className="px-4 py-2 rounded-lg bg-slate-200 transition-all delay-50 text-gray-500 hover:bg-blue-300 hover:text-gray-600" onClick={() => onAddProductData()}>Add Product</button>
+                    <button className="px-4 py-2 rounded-lg bg-slate-200 transition-all delay-50 text-gray-500 hover:bg-blue-300 hover:text-gray-600" onClick={() => onAddProductData()}>{editedData ? 'Edit Product' : 'Add Product'}</button>
                 </div>
             </div>
         </div>
