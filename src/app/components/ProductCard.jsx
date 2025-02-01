@@ -25,9 +25,9 @@ export default function ProductCard({ name, price, stock, id }) {
 
     return (
         <div className="bg-white rounded-xl overflow-hidden">
-        <div className="h-[15vw]">
+        <div className="h-[120px] sm:h-[15vw]">
         <MdDelete onClick={oncClickDelete} className="absolute cursor-pointer text-2xl ml-4 mt-4 text-white" />
-        <FaPencil onClick={oncClickEdit} className="absolute cursor-pointer text-lg ml-[3vw] mt-4 text-white" />
+        <FaPencil onClick={oncClickEdit} className="absolute cursor-pointer text-lg  ml-[50px] sm:ml-[3vw] mt-4 text-white" />
         <Image
         src={Dummy}
         className="w-full"
@@ -35,9 +35,9 @@ export default function ProductCard({ name, price, stock, id }) {
         />
         </div>
         <div className="p-4 text-gray-600">
-            <h3 className="text-2xl font-extrabold">{name}</h3>
-            <h4 className="text-lg font-medium">{currency(price)}</h4>
-            <h4 className="text-slate-400 font-bold">Remaining: {stock}</h4>
+            <h3 className="text-sm sm:text-2xl font-extrabold">{name}</h3>
+            <h4 className="text-sm sm:text-lg font-medium">{currency(price)}</h4>
+            <h4 className="text-sm sm:text-lg text-slate-400 font-bold">Remaining: {stock}</h4>
             </div>
         </div>
     )
