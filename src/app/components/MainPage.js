@@ -46,7 +46,7 @@ export default function MainPage() {
 
             <div className="p-10 w-screen min-h-screen bg-slate-100">
                 <div className="flex justify-between items-center mb-4">
-                    <h1 className="text-2xl text-slate-600 font-medium">Total Products: {products.length || 0}</h1>
+                    <h1 className="text-lg sm:text-2xl text-slate-600 font-medium">Total Products: {products.length || 0}</h1>
                     <div>
                         <input onInput={(e) => onSearch(e)} className="w-full text-slate-700 mb-2 bg-slate-200 rounded-lg px-4 py-2" placeholder="Search..." />
                         <button onClick={() => onClickSort()} className="px-4 py-2 rounded-lg bg-slate-200 transition-all delay-50 text-gray-500 mr-3 hover:bg-slate-300 hover:text-gray-600">Sort</button>
